@@ -4,7 +4,8 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Shopping from '@/components/Shopping/Shopping'
 import NewShoppingItem from '@/components/Shopping/NewShoppingItem'
-import Postit from '@/components/Postit'
+import Postit from '@/components/Postit/Postit'
+import NewPostitItem from '@/components/Postit/NewPostitItem'
 
 Vue.use(Router)
 
@@ -31,7 +32,15 @@ export default new Router({
     {
       path: '/postit',
       name: 'Postits',
-      component: Postit
+      component: Postit,
+      meta: {
+        button: { link: 'postit/new', icon: 'add' }
+      }
+    },
+    {
+      path: '/postit/new',
+      name: 'Ajouter un postit',
+      component: NewPostitItem
     }
   ]
 })
