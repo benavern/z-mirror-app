@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-subheader>Postits</v-subheader>
-    <v-expansion-panel expand>
+    <v-expansion-panel>
 
       <v-expansion-panel-content v-for="(item, index) in sortedItems" :key="item.id" :value="item.active">
         <div slot="header">#{{ index + 1 }}</div>

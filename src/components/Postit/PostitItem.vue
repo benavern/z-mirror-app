@@ -7,26 +7,28 @@
     <v-card-text v-if="editing">
       <v-text-field
           multi-line
-          v-model="item.content">
+          v-model="editedContent">
 
       </v-text-field>
     </v-card-text>
 
     <div v-if="!editing">
-      <v-btn flat primary @click.native="edit" :disabled="loading">
-        <v-icon left primary>edit</v-icon>
-        modifier
+      <v-btn icon flat primary @click.native="edit" :disabled="loading">
+        <v-icon primary>edit</v-icon>
       </v-btn>
 
-      <v-btn flat secondary @click.native="remove" :disabled="loading">
-        <v-icon left>delete</v-icon>
-        supprimer
+      <v-btn icon flat secondary @click.native="remove" :disabled="loading">
+        <v-icon>delete</v-icon>
       </v-btn>
     </div>
+
     <div v-if="editing">
-      <v-btn flat primary @click.native="update">
-        <v-icon left>done</v-icon>
-        OK
+      <v-btn icon flat primary @click.native="update">
+        <v-icon>done</v-icon>
+      </v-btn>
+
+      <v-btn icon flat secondary @click.native="editing = false">
+        <v-icon>clear</v-icon>
       </v-btn>
     </div>
   </v-card>
@@ -38,15 +40,18 @@ export default {
   props: ['item', 'loading'],
   data () {
     return {
-      editing: false
+      editing: false,
+      editedContent: ''
     }
   },
   methods: {
     edit () {
       this.editing = true
+      this.editedContent = this.item.content
     },
     update () {
       this.editing = false
+      this.item.content = this.editedContent
       this.$emit('update', this.item)
     },
     remove () {
