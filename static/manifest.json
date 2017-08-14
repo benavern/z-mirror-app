@@ -1,20 +1,20 @@
 {
-  "name": "z-mirror-app",
-  "short_name": "z-mirror-app",
+  "name": "z-mirror",
+  "short_name": "z-mirror",
   "icons": [
     {
-      "src": "/static/img/icons/android-chrome-192x192.png",
+      "src": "/static/img/icons/mipmap-xxxhdpi/ic_launcher.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/static/img/icons/android-chrome-512x512.png",
+      "src": "/static/img/icons/playstore/ic_launcher.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#1976d2",
+  "theme_color": "#1976d2"
 }
