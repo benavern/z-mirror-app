@@ -1,38 +1,78 @@
 <template>
-  <v-list three-line subheader>
-    <v-subheader>Liste de courses</v-subheader>
-    <v-list-tile avatar v-for="shopItem in list" :key="shopItem.uid">
-      <v-list-tile-action>
-        <v-checkbox v-model="shopItem.done"></v-checkbox>
-      </v-list-tile-action>
-      <v-list-tile-content>
-        <v-list-tile-title>{{ shopItem.item }}</v-list-tile-title>
-      </v-list-tile-content>
-      <v-list-tile-action>
-        <v-icon>delete</v-icon>
-      </v-list-tile-action>
-    </v-list-tile>
-  </v-list>
+  <div>
+    <v-list three-line subheader>
+      <v-subheader>Liste de courses</v-subheader>
+      <shopping-item
+            v-for="item in sortedList"
+            :key="item.id"
+            :item="item"
+            @update="update"
+            @delete="remove">
+      </shopping-item>
+    </v-list>
+  </div>
 </template>
 
 <script>
+  import ShoppingItem from './ShoppingItem.vue'
   export default {
+    name: 'shopping',
+    components: { ShoppingItem },
     data () {
       return {
         list: []
       }
     },
     mounted () {
-      this.$http.get('/shopping')
+      this.get()
+    },
+    computed: {
+      sortedList () {
+        return this.list.sort((a, b) => a.id > b.id)
+      }
+    },
+    methods: {
+      get () {
+        this.$http.get('/shopping')
         .then(res => {
           this.list = res.data.data
         })
         .catch(() => {
           this.list = []
         })
+      },
+      add (data) {
+        this.$http.post('/shopping')
+        .then(res => {
+          this.get()
+        })
+        .catch(() => {
+          this.get()
+        })
+      },
+      update (data) {
+        this.$http.put('/shopping', data)
+        .then(res => {
+          this.get()
+        })
+        .catch(() => {
+          this.get()
+        })
+      },
+      remove (data) {
+        console.log('REMOVE')
+        this.$http.delete('/shopping')
+        .then(res => {
+          this.get()
+        })
+        .catch(() => {
+          this.get()
+        })
+      }
     }
   }
 </script>
+
 <style>
 
 </style>

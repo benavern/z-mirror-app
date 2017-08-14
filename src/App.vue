@@ -35,7 +35,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed class="deep-orange" dark>
+    <v-toolbar fixed class="teal" dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Z-MIRROR</v-toolbar-title>
     </v-toolbar>
