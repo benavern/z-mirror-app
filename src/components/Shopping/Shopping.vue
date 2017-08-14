@@ -1,11 +1,12 @@
 <template>
   <div>
-    <v-list three-line subheader>
+    <v-list two-line subheader>
       <v-subheader>Liste de courses</v-subheader>
       <shopping-item
             v-for="item in sortedList"
             :key="item.id"
             :item="item"
+            :loading="loading"
             @update="update"
             @delete="remove">
       </shopping-item>
@@ -20,7 +21,8 @@
     components: { ShoppingItem },
     data () {
       return {
-        list: []
+        list: [],
+        loading: false
       }
     },
     mounted () {
@@ -33,39 +35,38 @@
     },
     methods: {
       get () {
+        this.loading = true
         this.$http.get('/shopping')
         .then(res => {
+          this.loading = false
           this.list = res.data.data
         })
         .catch(() => {
+          this.loading = false
           this.list = []
         })
       },
-      add (data) {
-        this.$http.post('/shopping')
-        .then(res => {
-          this.get()
-        })
-        .catch(() => {
-          this.get()
-        })
-      },
       update (data) {
+        this.loading = true
         this.$http.put('/shopping', data)
         .then(res => {
+          this.loading = false
           this.get()
         })
         .catch(() => {
+          this.loading = false
           this.get()
         })
       },
       remove (data) {
-        console.log('REMOVE')
-        this.$http.delete('/shopping')
+        this.loading = true
+        this.$http.delete('/shopping', { data }) // weird...
         .then(res => {
+          this.loading = false
           this.get()
         })
         .catch(() => {
+          this.loading = false
           this.get()
         })
       }

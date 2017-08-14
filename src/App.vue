@@ -35,9 +35,20 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed class="teal" dark>
+    <v-toolbar fixed class="primary" dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Z-MIRROR</v-toolbar-title>
+      <v-toolbar-title>{{ $route.name }}</v-toolbar-title>
+      <v-btn
+          v-if="$route.meta.button"
+          absolute
+          dark
+          class="blue-grey"
+          fab
+          bottom
+          right
+          :to="$route.meta.button.link">
+        <v-icon>add</v-icon>
+      </v-btn>
     </v-toolbar>
     <main>
       <v-container fluid>

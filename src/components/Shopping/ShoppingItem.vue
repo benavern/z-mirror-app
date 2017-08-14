@@ -1,7 +1,7 @@
 <template>
   <v-list-tile>
     <v-list-tile-action>
-      <v-checkbox v-model="item.done" @change="update"></v-checkbox>
+      <v-checkbox v-model="item.done" @change="update" :disabled="loading"></v-checkbox>
     </v-list-tile-action>
 
     <v-list-tile-content>
@@ -9,12 +9,13 @@
           v-model="item.item"
           max="120"
           @blur="update"
-          @keyup.enter="$event.target.blur()">
+          @keyup.enter="$event.target.blur()"
+          :disabled="loading">
       </v-text-field>
     </v-list-tile-content>
 
     <v-list-tile-action>
-      <v-btn icon @click.native="remove">
+      <v-btn icon @click.native="remove" :disabled="loading">
         <v-icon>delete</v-icon>
       </v-btn>
     </v-list-tile-action>
@@ -24,7 +25,7 @@
 <script>
 export default {
   name: 'shoppingItem',
-  props: ['item'],
+  props: ['item', 'loading'],
   data () {
     return {
       edit: false
