@@ -46,7 +46,6 @@ export default {
       .then(res => {
         this.loading = false
         this.list = res.data.data
-        console.log(this.list)
       })
       .catch(() => {
         this.loading = false

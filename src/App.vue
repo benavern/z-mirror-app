@@ -9,18 +9,13 @@
       absolute
     >
       <v-list class="pa-1">
-        <v-list-tile avatar tag="div">
-          <!-- <v-list-tile-avatar>
-            <img src="https://randomuser.me/api/portraits/men/85.jpg" />
-          </v-list-tile-avatar> -->
+        <v-list-tile avatar tag="div" to="/">
+          <v-list-tile-avatar>
+            <img src="/static/img/icons/mipmap-xxhdpi/ic_launcher.png"/>
+          </v-list-tile-avatar>
           <v-list-tile-content>
             <v-list-tile-title>Z-MIRROR</v-list-tile-title>
           </v-list-tile-content>
-          <v-list-tile-action>
-            <v-btn icon dark @click.native.stop="mini = !mini">
-              <v-icon>chevron_left</v-icon>
-            </v-btn>
-          </v-list-tile-action>
         </v-list-tile>
       </v-list>
       <v-list class="pt-0" dense>
