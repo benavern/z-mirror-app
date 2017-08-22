@@ -6,6 +6,8 @@ import Shopping from '@/components/Shopping/Shopping'
 import NewShoppingItem from '@/components/Shopping/NewShoppingItem'
 import Postit from '@/components/Postit/Postit'
 import NewPostitItem from '@/components/Postit/NewPostitItem'
+import Photos from '@/components/Photos/Photos'
+import NewPhotoItem from '@/components/Photos/NewPhotoItem'
 
 Vue.use(Router)
 
@@ -41,6 +43,19 @@ export default new Router({
       path: '/postit/new',
       name: 'Ajouter un postit',
       component: NewPostitItem
+    },
+    {
+      path: '/photos',
+      name: 'Photos',
+      component: Photos,
+      meta: {
+        button: { link: 'photos/new', icon: 'add' }
+      }
+    },
+    {
+      path: '/photos/new',
+      name: 'Ajouter une Photo',
+      component: NewPhotoItem
     }
   ]
 })

@@ -62,7 +62,8 @@
         items: [
           { title: 'Accueil', icon: 'home', link: '/' },
           { title: 'Liste de courses', icon: 'shopping_basket', link: '/shopping' },
-          { title: 'Postits', icon: 'dashboard', link: '/postit' }
+          { title: 'Postits', icon: 'dashboard', link: '/postit' },
+          { title: 'Photos', icon: 'image', link: '/photos' }
         ],
         mini: false,
         right: null

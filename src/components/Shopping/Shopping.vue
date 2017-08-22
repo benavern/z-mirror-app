@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-list two-line subheader>
-      <v-subheader>Liste de courses</v-subheader>
+      <!-- <v-subheader>Liste de courses</v-subheader> -->
       <shopping-item
             v-for="item in sortedList"
             :key="item.id"

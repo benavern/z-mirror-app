@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-text-field
-      label="Nouvel article"
+      label="Text du postit"
       v-model="newItem.content"
       :disabled="loading"
       multi-line>
