@@ -1,7 +1,7 @@
 <template>
   <v-card>
-    <v-card-text v-if="!editing">
-      {{ item.content }}
+    <v-card-text v-if="!editing"
+                 v-html="compiledMarkdown">
     </v-card-text>
 
     <v-card-text v-if="editing">
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import marked from 'marked'
 export default {
   name: 'PostitItem',
   props: ['item', 'loading'],
@@ -41,6 +42,11 @@ export default {
     return {
       editing: false,
       editedContent: ''
+    }
+  },
+  computed: {
+    compiledMarkdown () {
+      return marked(this.item.content)
     }
   },
   methods: {
