@@ -5,10 +5,9 @@
     </v-card-text>
 
     <v-card-text v-if="editing">
-      <v-text-field
-          multi-line
-          v-model="editedContent">
-
+      <v-text-field multi-line
+                    auto-grow
+                    v-model="editedContent">
       </v-text-field>
     </v-card-text>
 

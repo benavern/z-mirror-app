@@ -8,11 +8,10 @@
         </v-list-tile-action>
 
         <v-list-tile-content>
-          <v-text-field
-            label="Nouvel article"
-            v-model="newItem.item"
-            :disabled="loading"
-            @keyup.enter="add">
+          <v-text-field label="Nouvel article"
+                        v-model="newItem.item"
+                        :disabled="loading"
+                        @keyup.enter="add">
           </v-text-field>
         </v-list-tile-content>
 

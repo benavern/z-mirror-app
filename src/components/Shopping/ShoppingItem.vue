@@ -5,12 +5,10 @@
     </v-list-tile-action>
 
     <v-list-tile-content>
-      <v-text-field
-          v-model="item.item"
-          max="120"
-          @blur="update"
-          @keyup.enter="$event.target.blur()"
-          :disabled="loading">
+      <v-text-field v-model="item.item"
+                    @blur="update"
+                    @keyup.enter="$event.target.blur()"
+                    :disabled="loading">
       </v-text-field>
     </v-list-tile-content>
 

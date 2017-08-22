@@ -1,9 +1,8 @@
 <template>
   <div>
-    <v-text-field
-      label="Titre"
-      v-model="newItem.title"
-      :disabled="loading">
+    <v-text-field label="Titre"
+                  v-model="newItem.title"
+                  :disabled="loading">
     </v-text-field>
 
     <div :class="['img-preview', 'text-xs-center', {'empty': !currentFile}]">

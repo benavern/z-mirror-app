@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-text-field
-      label="Text du postit"
-      v-model="newItem.content"
-      :disabled="loading"
-      multi-line>
+    <v-text-field label="Text du postit"
+                  auto-grow
+                  v-model="newItem.content"
+                  :disabled="loading"
+                  multi-line>
     </v-text-field>
 
     <v-btn to="/postit" dark secondary>

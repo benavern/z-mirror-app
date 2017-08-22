@@ -6,7 +6,6 @@
     <v-card-title class="pb-0">
       <v-text-field class="pa-0"
                     v-model="photo.title"
-                    max="255"
                     @blur="update"
                     @keyup.enter="$event.target.blur()"
                     :disabled="loading">
